@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/resources/css/ext-all.css" rel="stylesheet" />
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-neptune/resources/theme-neptune-all.css" rel="stylesheet" /> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            console.log("Tatta doyy");
+            var component1=Ext.create("Ext.Button",{
+                title:"BOOM BOOM ROBO",
+                
+                html:"A Shankar's film"
+
+            });
+            Ext.create("Ext.Panel",{
+                title:"BOOM BOOM ROBO",
+                renderTo:"myFirst",
+                layout:'anchor',
+                width:500,
+                height:200,
+                // padding:20,
+                // style:{backgroundColor:"green"},
+                margin: '50 50 30 100',
+                items:[{
+                    xtype:'textfield',
+                    fieldLabel:'firstname'
+                    },component1],
+                buttons:[{text:"save us"},{text:"let them die"}]
+                
+
+
+            });
+            
+        });
+    </script>
+</head>
+<body>
+<h1>Welcome</h1>
+<p id="myFirst"></p>
+<p id="mz"></p>
+</body>
+</html>
+
+

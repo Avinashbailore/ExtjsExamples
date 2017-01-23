@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+     .doni  .x-panel-header-text-container-default
+    {
+        color:red;
+    }
+</style>
+<head>
+	<title>Layout</title>
+	
+
+	<!-- <link rel="stylesheet" type="text/css" href="css/mystyle.css"> -->
+	 <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/resources/css/ext-all.css" rel="stylesheet" />
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/ext-all.js"></script>
+     
+     <script type="text/javascript">
+     	Ext.onReady(function(){
+        count = 0;
+
+        Ext.onReady(function() {
+         Ext.create('Ext.tab.Panel', {
+            renderTo: 'layout',
+            width: 300,
+            height: 300,
+            items:[{
+               title: 'panel1',
+               html:   'panel1.'
+            },{
+               title: 'panel2',
+               html: 'panel2'
+            },{
+               title: 'panel3',
+               html: 'panel3'
+            }]
+         });
+        });
+
+       // Ext.create('Ext.Panel', {
+       //      width      : 800,
+       //      height : 300,
+       //    renderTo : 'fit',
+       //      title      : 'Football',
+       //      html : ''
+            
+       //  });
+      
+       Ext.create('Ext.Panel', {
+          layout : 'column' ,
+          renderTo : 'layout2',
+          width : 800,
+          items: [{
+             title : 'panel1',
+             html : 'panel1',
+             columnWidth : 0.60
+          },{
+             title : 'panel2',
+             html : 'panel2',
+             columnWidth : 0.20
+          },{
+             title : 'panel3',
+             html : 'panel3' ,
+             columnWidth : 0.20
+          }]
+       });
+
+       Ext.create('Ext.container.Container', {
+            renderTo : 'table',
+            layout : {
+               type :'table',
+               columns : 4,
+               tableAttrs: {
+                  style: {
+                     width: '100%'
+                  }
+               }               
+            },
+            width:500,
+            height:300,
+            items : [{
+               title : 'Panel1',
+               html : ' panel1',
+               colspan :3
+            },{
+               title : 'Panel2',
+               html : 'panel2',
+               rowspan: 2
+            },{
+               title : 'Panel3',
+               html : 'panel3',
+               colspan :2
+            },{
+               title : 'Panel4',
+               html : 'panel4',
+               rowspan: 2
+            },{
+               title : 'Panel5',
+               html : 'panel5'
+            }]
+         });
+
+  });
+     </script>
+</head>
+<body>
+  <div id="table"></div>
+	<div id="layout"></div>
+  <div id="layout2"></div>
+  <div id="fit"></div>
+	
+</body>
+
+</html>

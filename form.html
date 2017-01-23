@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Form</title>
+	<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+	<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/resources/css/ext-all.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" /> -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/resources/css/ext-all-neptune.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/ext-all.js"></script>
+    <!-- <script type="text/javascript" src="contollers/controller.js"></script> -->
+    <style type="text/css">
+    	#button-1020,#button-1021,#button-1019
+    	{
+    		margin-right: 20px;
+    		padding: 5px;
+    	}
+    </style>
+</head>
+<body>
+	<div id="try"></div>
+	<div id="try1"></div>
+</body>
+
+<script type="text/javascript">
+	Ext.onReady(function(){
+
+
+
+		var main = Ext.create("Ext.form.Panel",{
+			height:500,
+			width:300,
+			title:'login form',
+			renderTo : 'try',
+			items : [
+						
+
+						                
+					                {
+					                    xtype : 'textfield',
+					                    name:'fname',
+					                    fieldLabel : 'FirstName',
+					                    msgTarget: 'under',
+					                    allowBlank : false,
+					                    // validateOnBlur:true,
+					                    validateOnBlur:true,
+					                    // validateOnChange:false,
+					                    // blankText: 'This should not be blank!',
+					                    validator: function(val) {
+							                if (!Ext.isEmpty(val)) {
+							                    return true;
+							                }
+							                else {
+							                    return "FirstName cannot be empty";
+							                }
+							                // console.log(val);
+							            }
+
+					                },
+					                {
+					                    xtype : 'textfield',
+					                    name:'lname',
+					                    msgTarget: 'under',
+					                    allowBlank : false,
+					                    fieldLabel : 'LastName',
+					                    validateOnBlur:true,
+					                    // validateOnChange:false,
+					                    // blankText: 'This should not be blank!',
+					                    validator: function(val) {
+							                if (!Ext.isEmpty(val)) {
+							                    return true;
+							                }
+							                else {
+							                    return "LastName cannot be empty";
+							                }
+							                // console.log(val);
+							            }
+					                },
+					     //            {
+					     //            	xtype: 'textfield',
+										// fieldLabel: 'email',
+										// msgTarget: 'under',
+										// regex: /^([\w\-\’\-]+)(\.[\w-\’\-]+)*@([\w\-]+\.){1,5}([A-Za-z]){2,4}$/,
+					     //            },
+					                {
+					                    xtype : 'textfield',
+					                    name:'email',
+					                    validateOnBlur:true,
+					                    allowBlank : false,
+					                    // validateOnChange:false,
+					                    msgTarget: 'under',
+					                    fieldLabel : 'Email',
+					                    vtype : 'email',
+					                    validator: function(val) {
+							                if (!Ext.isEmpty(val)) {
+							                    return true;
+							                }
+							                else {
+							                    return "Email cannot be empty";
+							                }
+							                // console.log(val);
+							            }
+					                },
+					                {
+					                    xtype : 'textfield',
+					                    name:'Password',
+					                    msgTarget: 'under',
+					                    allowBlank : false,
+					                    fieldLabel : 'Password',
+					                    validateOnBlur:true,
+					                    // validateOnChange:false,
+					                    inputType : 'password',
+					                    minLength : 5,
+					                    minLengthText : 'Password should be min 5 characters',
+					                    validator: function(val) {
+							                if (!Ext.isEmpty(val)) {
+							                    return true;
+							                }
+							                else {
+							                    return "Password cannot be empty";
+							                }
+							                // console.log(val);
+							            }
+
+					                },
+					                {
+					                    xtype : 'textfield',
+					                    name:'ConfirmPassword',
+					                    validateOnBlur:true,
+					                    allowBlank : false,
+					                    // validateOnChange:false,
+					                    msgTarget: 'under',
+					                    fieldLabel : 'ConfirmPassword',
+					                    inputType : 'password',
+					                    validator: function(value) {
+					                    	
+            var Password = this.previousSibling('[name=Password]');
+            return (value === Password.getValue()) ? true : 'Passwords do not match.'
+        }
+
+					                },
+					                {
+					                    xtype : 'textfield',
+					                    name:'Mobile',
+					                    msgTarget: 'under',
+					                    fieldLabel : 'Mobile',
+					                    allowBlank : false,
+					                    validateOnBlur:true,
+					                    // validateOnChange:false,
+					                    validator: function(val) {
+							                if (!Ext.isEmpty(val)) {
+							                    return true;
+							                }
+							                else {
+							                    return "Mobileno cannot be empty";
+							                }
+							                // console.log(val);
+							            }
+					                },
+					                {
+					                    xtype : 'textfield',
+					                    name:'Pin',
+					                    msgTarget: 'under',
+					                    fieldLabel : 'Pin',
+					                    allowBlank : false,
+					                     minLength : 6,
+					                     validateOnBlur:true,
+					                    // validateOnChange:false,
+					                    minLengthText : 'Pin should have six characters',
+					                    validator: function(val) {
+							                if (!Ext.isEmpty(val)) {
+							                    return true;
+							                }
+							                else {
+							                    return "Pin cannot be empty";
+							                }
+							                // console.log(val);
+							            }
+
+					                },
+					                {
+					                    xtype: 'datefield',
+					                    fieldLabel: 'Start date',
+					                    validateOnBlur:true,
+					                    // validateOnChange:false,
+					                    name:'Date',
+					                    msgTarget: 'under',
+					                    allowBlank : false,
+					                    validator: function(val) {
+							                if (!Ext.isEmpty(val)) {
+							                    return true;
+							                }
+							                else {
+							                    return "Date cannot be empty";
+							                }
+							                // console.log(val);
+							            }
+
+					                },
+					                {
+					                    xtype : 'button',
+					                    text : 'Submit',
+					                    bodyPadding : 10,
+					                    defaults : 
+						                {
+						                    // backgroundColor : 'black',
+						                    margin : 10
+						                },
+					                    handler: function(){
+							                // alert("Login");
+							                // this.up('form');							      
+							                console.log(this.up('form').getValues());
+							                var form = this.up('form');
+							                console.log(form);
+							                if(form.isValid())
+							                {
+							                	alert("Form submitted successfully");
+							                	// form.submit({
+								                //     success: function(form, action) {
+								                //        Ext.Msg.alert('Success', action.result.msg);
+								                //     },
+								                //     failure: function(form, action) {
+								                //         Ext.Msg.alert('Failed', action.result.msg);
+								                //     }
+								                // });
+							                }
+							                else
+							                {
+							                	alert("not valid fields");
+							                }
+							                
+							            },
+							   //          formBind: true, //only enabled once the form is valid
+										// disabled: true,
+					                },
+					                {
+					                    xtype : 'button',
+					                    text : 'Cancel',
+					                    handler: function(){
+							                alert("Cancel");
+							                
+							            }
+					                },
+
+
+							                
+							            
+							
+					] 
+
+		});
+		
+		// var win = Ext.create("Ext.window.Window",{
+		// 	title : "LoginWindow",
+		// 	height : 500,
+		// 	width : 300,
+		// 	// renderTo : 'try1'
+		// 	// items : [main],
+		// 	// renderTo : 'try',
+
+
+		// });
+		// win.show();
+        
+     });
+</script>
+
+</html>

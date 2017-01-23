@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+    .clr .x-panel-header-default {
+        background-color: green;
+    }
+    
+    .bl .x-panel-body-default {
+        background: #4d4d4d;
+    }
+    
+    .blue .x-panel-header-default {
+        background-color: #157fcc;
+    }
+    
+    #tab-1039-btnInnerEl,
+    #tab-1038-btnInnerEl,
+    #tab-1037-btnInnerEl {
+        text-decoration: none;
+        padding: 44px 0px;
+        margin: 10px -16px;
+        width: 99px;
+        transform: rotate(90deg);
+    }
+    
+    #tabbar-1010-innerCt {
+        width: 100px;
+    }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/resources/css/ext-all-neptune.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/ext-all.js"></script>
+    <script>
+    Ext.onReady(function() {
+        var count = 0;
+        var panel = Ext.create('Ext.tab.Panel', {
+            title: "Emp details",
+            titleAlign: "center",
+            align: 'stretch',
+            height: 550,
+            tabBar: {
+                height: 100,
+                width: 150,
+                padding: 0
+            },
+            tabPosition: "left",
+            renderTo: Ext.getBody(),
+            items: [{
+                    title: "Home",
+                    titleAlign: "center",
+                    border: false, //start of panel1....................................................
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch',
+                    },
+                    cls: "bl",
+                    items: [{
+                        title: 'Welcome suraj ghosh',
+                        margin: "2 0 0 0",
+                        icon: "images/pic.png",
+                        cls: "clr",
+                        border: false,
+                        style: {
+                            color: "white",
+                            // "text-align:center"
+                        },
+                        flex: 1,
+                        layout: 'hbox',
+                        items: [{
+                            title: 'My Profile completeness',
+                            titleAlign: "center",
+                            margin: '10 0 0 0',
+                            cls: 'blue',
+                            style: {
+                                color: "white",
+                            },
+                            bodyStyle: {
+                                "background-color": "white",
+                                padding: "2px 15px"
+                            },
+                            height: 200,
+                            flex: 2
+                        }, {
+                            title: 'Certify Your Data ',
+                            titleAlign: "center",
+                            margin: '10 0 0 10',
+                            cls: 'blue',
+                            style: {
+                                color: "white"
+                            },
+                            bodyStyle: {
+                                "background-color": "white"
+                            },
+                            height: 200,
+                            flex: 1
+                        }]
+                    }, {
+                        layout: 'hbox',
+                        border: false,
+                        items: [{
+                            title: 'Your circle',
+                            titleAlign: "center",
+                            margin: '10 0 0 0',
+                            border: false,
+                            style: {
+                                color: "white"
+                            },
+                            bodyStyle: {
+                                "background-color": "white"
+                            },
+                            height: 200,
+                            flex: 1
+                        }, {
+                            title: 'people you must know',
+                            titleAlign: "center",
+                            margin: "10 0 0 10",
+                            border: false,
+                            style: {
+                                color: "white"
+                            },
+                            bodyStyle: {
+                                "background-color": "white"
+                            },
+                            height: 200,
+                            flex: 2
+                        }]
+                    }],
+                }, //end of panel1..................................................................
+                { //start of panel2..................................................................
+                    title: "About me",
+                    border: false,
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch',
+                    },
+                    cls: "bl",
+                    items: [{
+                        title: 'Welcome suraj ghosh',
+                        icon: "images/pic.png",
+                        cls: "clr",
+                        border: false,
+                        style: {
+                            color: "white",
+                        },
+                        flex: 1,
+                        layout: 'hbox',
+                        items: [{
+                            title: 'About me',
+                            titleAlign: "center",
+                            margin: '10 0 0 0',
+                            data: {
+                                id: "578234",
+                                firstname: "Suraj",
+                                lastname: "Ghosh"
+                            },
+                            tpl: ["<h4>emp id:{id}</h4>",
+                                "<h4>first name:{firstname}</h4>",
+                                "<h4>last name:{lastname}</h4>"
+                            ],
+                            cls: 'blue',
+                            style: {
+                                color: "white",
+                            },
+                            bodyStyle: {
+                                "background-color": "white",
+                                padding: "2px 15px"
+                            },
+                            height: 200,
+                            flex: 1
+                        }, {
+                            title: 'My address ',
+                            titleAlign: "center",
+                            margin: '10 0 0 10',
+                            layout: 'accordion',
+
+                            items: [{
+                                title: 'Panel 1',
+                            }, {
+                                title: 'Panel 2',
+                                html: 'Panel 2 html content',
+                            }],
+                            cls: 'blue',
+                            style: {
+                                color: "white"
+                            },
+                            bodyStyle: {
+                                "background-color": "white"
+                            },
+                            height: 200,
+                            flex: 2
+                        }]
+                    }, {
+                        layout: 'hbox',
+                        border: false,
+                        items: [{
+                            title: 'personal email',
+                            titleAlign: "center",
+                            margin: '10 0 0 0',
+                            border: false,
+                            style: {
+                                color: "white"
+                            },
+                            bodyStyle: {
+                                "background-color": "white"
+                            },
+                            height: 200,
+                            flex: 1
+                        }, {
+                            title: 'personal phone',
+                            titleAlign: "center",
+                            margin: "10 0 0 10",
+                            border: false,
+                            style: {
+                                color: "white"
+                            },
+                            bodyStyle: {
+                                "background-color": "white"
+                            },
+                            height: 200,
+                            flex: 2
+                        }, {
+                            title: 'work phone',
+                            titleAlign: "center",
+                            margin: '10 0 0 10',
+                            height: 200,
+                            border: false,
+                            style: {
+                                color: "white"
+                            },
+                            bodyStyle: {
+                                "background-color": "white"
+                            },
+                            flex: 2
+
+                        }],
+                    }],
+                }, //end of 2nd panel............................................................
+                { //start of 3rd panel...........................................
+                    title: "My Cognizant",
+                    border: false,
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch',
+                    },
+                    cls: "bl",
+                    items: [{
+                            title: 'Welcome suraj ghosh',
+                            icon: "images/pic.png",
+                            cls: "clr",
+                            border: false,
+                            style: {
+                                color: "white"
+                            },
+                            flex: 1,
+                            layout: {
+                                type: "hbox",
+                                align: "stretch"
+                            },
+                            items: [{
+                                layout: 'vbox',
+                                flex: 2,
+                                border: false,
+                                items: [{
+                                    title: 'My project',
+                                    titleAlign: "center",
+                                    margin: '10 0 0 0',
+                                    cls: 'blue',
+                                    style: {
+                                        color: "white",
+                                    },
+                                    bodyStyle: {
+                                        "background-color": "white",
+                                        padding: "2px 15px"
+                                    },
+                                    height: 140,
+                                    width: 500
+                                        // flex: 1
+                                }, {
+                                    title: 'My location ',
+                                    titleAlign: "center",
+                                    margin: '10 0 0 0',
+
+                                    cls: 'blue',
+                                    style: {
+                                        color: "white"
+                                    },
+                                    bodyStyle: {
+                                        "background-color": "white"
+                                    },
+                                    height: 120,
+                                    width: 500
+                                }, {
+                                    title: 'My Role history ',
+                                    titleAlign: "center",
+                                    margin: '10 0 0 0',
+
+                                    cls: 'blue',
+                                    style: {
+                                        color: "white"
+                                    },
+                                    bodyStyle: {
+                                        "background-color": "white"
+                                    },
+                                    height: 150,
+                                    width: 500
+                                }]
+                            }, {
+                                flex: 4,
+                                layout: {
+                                    type: "vbox",
+                                    align: 'stretch'
+                                },
+                                border: false,
+                                items: [{
+                                    title: 'My Cognizant ',
+                                    titleAlign: "center",
+                                    margin: '10 0 0 10',
+                                   
+
+                                    cls: 'blue',
+                                    style: {
+                                        color: "white"
+                                    },
+                                    bodyStyle: {
+                                        "background-color": "white"
+                                    },
+                                    height: 200,
+                                    flex: 2
+                                }, {
+                                    title: 'My Cognizant ',
+                                    titleAlign: "center",
+                                    margin: '10 0 0 10',
+                                    // align:"stretch",
+
+                                    cls: 'blue',
+                                    style: {
+                                        color: "white"
+                                    },
+                                    bodyStyle: {
+                                        "background-color": "white"
+                                    },
+                                    height: 200,
+                                    flex: 1
+                                }]
+                            }]
+                        }
+
+                    ], // end of third panel.............................
+
+                }
+            ],
+            buttons: [{
+                text: "previous",
+                disabled: true,
+                listeners: {
+                    click: function() {
+                        count = count - 1;
+                        panel.getLayout().setActiveItem(count);
+                        this.nextSibling().setDisabled(false);
+                        this.setDisabled(count == 0);
+                    }
+                }
+            }, {
+                text: "next",
+                listeners: {
+                    click: function() {
+                        count = count + 1;
+                        panel.getLayout().setActiveItem(count);
+                        this.previousSibling().setDisabled(false);
+                        this.setDisabled(count == 2);
+                    }
+                }
+            }]
+        });
+    });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

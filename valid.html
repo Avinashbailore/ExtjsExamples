@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/resources/css/ext-all.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/ext-all.js"></script>
+    <script>
+    Ext.onReady(function() {
+        Ext.create("Ext.form.Panel", {
+            defaults: {
+                anchor: '100%'
+            },
+            width: 400,
+            frame: true,
+            bodyPadding: 10,
+            title: "Registration Form",
+            renderTo: Ext.getBody(),
+            items: [{
+                xtype: "textfield",
+                fieldLabel: "User Name",
+                allowBlank: false,
+                minLength: 6
+            }, {
+                xtype: "textfield",
+                name: "password1",
+                fieldLabel: "Password",
+                inputType: "password",
+                allowBlank: false,
+                minLength: 8
+            }, {
+                xtype: "textfield",
+                name: "password2",
+                fieldLabel: "Repeat-Password",
+                inputType: "password",
+                allowBlank: false,
+                validator: function(value) {
+                    var password1 = this.previousSibling('[name=password1]');
+                    return (value === password1.getValue()) ? true : 'Passwords do not match.'
+                }
+
+            }, {
+                xtype: 'textfield',
+                fieldLabel: 'Email Address',
+                vtype: 'email',
+                allowBlank: false
+
+            }],
+            buttons: [{
+                text: "save",
+
+            }, {
+                text: "cancel"
+            }],
+
+        });
+
+
+
+    })
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

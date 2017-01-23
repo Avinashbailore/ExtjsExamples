@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script data-require="angular.js@*" data-semver="1.3.7" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.7/angular.js"></script>
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+</head>
+
+<body ng-app="app" ng-controller="myController">
+    <ul ng-repeat="group in getGroups() track by $index">
+      <li  ng-repeat="data in getDataByGroup($index)">
+        <p ng-if='$even'>{{data}}</p>
+        <p><a href='#' ng-if='$odd'>{{data}}</a></p>
+      </li>
+    </ul>
+  <script>
+    var app = angular.module("app", []);
+    app.controller("myController", function($scope) {
+      $scope.data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      $scope.getGroups = function() {
+        return new Array($scope.data.length / 2);
+      };
+
+      $scope.getDataByGroup = function(index) {
+        return $scope.data.slice(index * 2, index * 2 + 2);
+      }
+    })
+  </script>
+</body>
+
+
+<!-- 
+<html>
+   
+   <head>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   </head>
+   
+   <body ng-app = "myApp">
+	
+      <div ng-controller = "myCtrl">
+         <input type = "file" file-model = "myFile"/>
+         <button ng-click = "uploadFile()">upload me</button>
+      </div>
+      
+      <script>
+         var myApp = angular.module('myApp', []);
+         
+         myApp.directive('fileModel', ['$parse', function ($parse) {
+            return {
+               restrict: 'A',
+               link: function(scope, element, attrs) {
+                  var model = $parse(attrs.fileModel);
+                  var modelSetter = model.assign;
+                  
+                  element.bind('change', function(){
+                     scope.$apply(function(){
+                        modelSetter(scope, element[0].files[0]);
+                     });
+                  });
+               }
+            };
+         }]);
+      
+         myApp.service('fileUpload', ['$https:', function ($https) {
+            this.uploadFileToUrl = function(file, uploadUrl){
+               var fd = new FormData();
+               fd.append('file', file);
+            
+               $https.post(uploadUrl, fd, {
+                  transformRequest: angular.identity,
+                  headers: {'Content-Type': undefined}
+               })
+            
+               .success(function(){
+               })
+            
+               .error(function(){
+               });
+            }
+         }]);
+      
+         myApp.controller('myCtrl', ['$scope', 'fileUpload', function($scope, fileUpload){
+            $scope.uploadFile = function(){
+               var file = $scope.myFile;
+               
+               console.log('file is ' );
+               console.dir(file);
+               
+               var uploadUrl = "/fileUpload";
+               fileUpload.uploadFileToUrl(file, uploadUrl);
+            };
+         }]);
+			
+      </script>
+      
+   </body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+	<title>Upload</title>
+	<script type="text/javascript">
+		var myApp = angular.module('myApp', []);
+		myApp.directive('fileModel', ['$parse', function ($parse) {
+		    return {
+		        restrict: 'A',
+		        link: function(scope, element, attrs) {
+		            var model = $parse(attrs.fileModel);
+		            var modelSetter = model.assign;
+		            
+		            element.bind('change', function(){
+		                scope.$apply(function(){
+		                    modelSetter(scope, element[0].files[0]);
+		                });
+		            });
+		        }
+		    };
+		}]);
+
+		myApp.service('fileUpload', ['$http', function ($http) {
+		    this.uploadFileToUrl = function(file, uploadUrl){
+		        var fd = new FormData();
+		        fd.append('file', file);
+		        $http.post(uploadUrl, fd, {
+		            transformRequest: angular.identity,
+		            headers: {'Content-Type': undefined}
+		        })
+		        .success(function(){
+		        })
+		        .error(function(){
+		        });
+		    }
+		}]);
+
+		myApp.controller('myCtrl', ['$scope', 'fileUpload', function($scope, fileUpload){
+		    console.log("hai");
+		    $scope.uploadFile = function(){
+		        var file = $scope.myFile;
+		        console.log('file is ' );
+		        console.dir(file);
+		        var uploadUrl = "/fileUpload";
+		        fileUpload.uploadFileToUrl(file, uploadUrl);
+		    };
+		    
+		}]);
+
+	</script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller = "myCtrl">
+    	<input type="file" file-model="myFile"/>
+    	<button ng-click="uploadFile()">upload me</button>
+	</div>
+	
+</body>
+</html> --> -->

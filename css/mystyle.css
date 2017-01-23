@@ -1,0 +1,64 @@
+
+*
+{
+	box-sizing:border-box;
+	
+}
+
+body
+{
+	margin: 0 auto;
+}
+
+#rad
+{
+	margin-top: 10px;
+}
+
+#milo
+{
+	margin-bottom: 20px;
+}
+
+#fname
+{
+	margin-top: 5px;
+}
+
+.welcome .x-panel-header-text-container-default 
+{
+	
+	font-size: 20px;
+}
+
+#panel-1020_header
+{
+	background-color: green;
+	color: white;
+}
+
+#panel-1014_header,#panel-1010_header,#panel-1016_header,#panel-1018_header,#panel-1017_header
+{
+	background-color: #50b3cf;
+	color: white;
+}
+#widget
+{
+	width: 100%;
+}
+
+#hai
+{
+	float: left;
+	padding: 10px;
+}
+
+#panel-1020-innerCt
+{
+	/*background-color: black;*/
+}
+
+.x-header-text
+{
+	color: white;
+}

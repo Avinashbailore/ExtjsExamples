@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+    .clr .x-panel-header-default {
+        background-color: green;
+    }
+    
+    .bl .x-panel-body-default {
+        background: #4d4d4d;
+    }
+    
+    .blue .x-panel-header-default {
+        background-color: #157fcc;
+    }
+    
+    #tab-1039-btnInnerEl,
+    #tab-1038-btnInnerEl,
+    #tab-1037-btnInnerEl {
+        text-decoration: none;
+        padding: 44px 0px;
+        margin: 10px -16px;
+        width: 99px;
+        transform: rotate(90deg);
+    }
+    
+    #tabbar-1010-innerCt {
+        width: 100px;
+    }
+    #panel-1009
+    {
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/resources/css/ext-all-neptune.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/ext-all.js"></script>
+    <script>
+    Ext.onReady(function(){
+        Ext.onReady(function(){
+
+            var loc =  Ext.create('Ext.Panel',{
+                title:'Mylocation',
+                width:'100%',
+                height:200,
+                collapsible : true,
+                closable:true,
+                
+                cls : 'welcome' 
+            });
+
+            var proj =  Ext.create('Ext.Panel',{
+                title:'Myproject',
+                width:'100%',
+                height:150,
+                collapsible : true,
+                closable:true,
+                 data : {phone : '8106791035',type : 'PER1'},
+                tpl : ['<table border="1" style="border-collapse: collapse;margin:20px 30px 10px 40px;padding:30px;"><tr><th>ProjectId</th><th>ProjectName</th></tr><tr><td>{phone}</td><td>HME1</td></tr></table>'],
+                cls : 'welcome' 
+            });
+
+            var profiles =  Ext.create('Ext.Panel',{
+                title:'MyCognizant',
+                width:'50%',
+                height : 430,
+                
+                
+
+                collapsible : true,
+                closable:true,             
+                
+            });
+
+            var datas =  Ext.create('Ext.Panel',{
+                title:'About Me',
+                width:'50%',
+                height : 430,
+                items:
+                    [
+                        proj,loc
+                    ],
+                
+                collapsible : true,
+                closable:true,
+                cls : 'mydata',
+                bodyStyle :'font-size : 18px;padding-left : 10px;padding-top : 10px;padding-right : 10px;',
+            });
+
+            var yo =  Ext.create('Ext.Container',{
+                width:'100%',
+                layout : 'hbox',
+                items : 
+                    [
+                        datas,profiles
+                    ],
+                defaults:
+                    {
+                        padding : 5
+                    },
+                collapsible : true,
+                closable:true
+            });
+
+
+           
+
+
+
+            
+
+            var showss = Ext.create('Ext.Panel',{
+                title:'Welcome Avinash Bailore',
+                height:450,
+                layout : 'vbox',
+                collapsible : true,
+                closable:true,
+                renderTo : 'widget',
+                // hidden : true,
+                items : 
+                    [
+                        yo
+                    ],
+                defaults : 
+                {
+                    backgroundColor : 'black'
+                }
+
+
+            });
+
+            
+           
+        });
+        
+});
+    </script>
+</head>
+
+<body>
+    <div id="widget"></div>
+</body>
+
+</html>
